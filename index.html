@@ -6,56 +6,60 @@
 <title>Turnen Anwesenheit</title>
 <style>
 :root{--bg:#faf7ff;--card:#fff;--line:#ece6f7;--fg:#241b3a;--mut:#7b7391;--acc:#7c3aed;--acc2:#ec4899;--ok:#16a34a;--no:#e11d48;--late:#d97706;--sh:0 2px 10px rgba(80,40,140,.08)}
-@media (prefers-color-scheme:dark){:root{--bg:#14101f;--card:#1e1830;--line:#2e2646;--fg:#f3effc;--mut:#a79fbd;--acc:#8b5cf6;--sh:none;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root{--bg:#14101f;--card:#1e1830;--line:#2e2646;--fg:#f3effc;--mut:#a79fbd;--acc:#8b5cf6;--ok:#22c55e;--sh:none;color-scheme:dark}}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
-header{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 16px;border-radius:0 0 22px 22px;box-shadow:var(--sh)}
-.hd{font-size:20px;font-weight:800;max-width:560px;margin:0 auto}
+header{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 14px;border-radius:0 0 22px 22px;box-shadow:var(--sh)}
+.hd{font-size:19px;font-weight:800;max-width:560px;margin:0 auto}
 main{max-width:560px;margin:0 auto;padding:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin:0 0 12px;box-shadow:var(--sh)}
 .big{font-size:18px;font-weight:700}.c{text-align:center;flex:1}
 .mut{color:var(--mut);font-size:14px}
-.lbl{font-size:13px;font-weight:600;color:var(--mut);margin:10px 0 4px}
-input[type=text],input[type=password],input[type=date],select{font:inherit;width:100%;padding:11px 12px;margin-top:8px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.lbl{font-size:13px;font-weight:600;color:var(--mut);margin:12px 0 4px}
+input[type=text],input[type=password],input[type=date],select{font:inherit;width:100%;padding:10px 12px;margin-top:8px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .chip{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600}
 .chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
 .chip.sm{padding:6px 11px;font-size:14px}.chip.rm{color:var(--no)}
 .btn{border:0;border-radius:14px;padding:12px 16px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font:inherit;font-weight:700}
 .btn.g{background:var(--card);color:var(--fg);border:1px solid var(--line)}.wide{width:100%;margin-top:12px}
-.gh{display:flex;align-items:center;gap:8px;margin:16px 2px 6px}
-.row{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px 14px;margin:6px 0;box-shadow:var(--sh)}
+.gh{display:flex;align-items:center;gap:8px;margin:14px 2px 4px}
+.row{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 8px 8px 14px;margin:5px 0}
 .nm{flex:1;min-width:0;font-weight:600}.note{font-weight:400;font-size:13px;color:var(--mut);margin-top:2px}
-.ib{border:0;background:transparent;font-size:20px;padding:6px}
+.ib{border:0;background:transparent;font-size:19px;padding:6px}
 .ni{margin:-2px 0 8px}
-.st{border:0;border-radius:12px;padding:11px 10px;min-width:104px;font:inherit;font-weight:700;color:#fff}
-.st.P{background:var(--ok)}.st.A{background:var(--no)}.st.L{background:var(--late)}
+.st{border-radius:12px;padding:9px 8px;min-width:104px;font:inherit;font-weight:700;border:2px solid transparent}
+.st.P{background:transparent;color:var(--ok);border-color:var(--ok)}
+.st.A{background:var(--no);color:#fff}.st.L{background:var(--late);color:#fff}
+.st.Y{background:var(--ok);color:#fff}.st.N{background:var(--no);color:#fff}.st.O{background:var(--line);color:var(--mut)}
 .kc{display:inline-block;border-radius:8px;padding:2px 9px;font-size:13px;font-weight:800;color:#fff}
 .kc.K1{background:#f59e0b}.kc.K2{background:#10b981}.kc.K3{background:#3b82f6}.kc.K4{background:#ec4899}
-.sum{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;font-size:14px;font-weight:600}
-.sum span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+.sum{font-size:14px;font-weight:600;color:var(--mut);margin:10px 2px}
 .between{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.wk{display:flex;align-items:center;gap:8px}
-.tap{cursor:pointer}.ok{color:var(--ok);font-weight:700;font-size:14px}
+.nav2{display:flex;align-items:center;gap:8px}
+.tools{display:flex;gap:6px;align-items:center;margin-bottom:10px}
+.tools input{margin:0;flex:1;width:auto}
+.tap{cursor:pointer}.pill{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700;white-space:nowrap}
 .line{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid var(--line);flex-wrap:wrap}
 .tag{font-size:12px;font-weight:800;color:#fff;border-radius:8px;padding:2px 8px}.tag.A{background:var(--no)}.tag.L{background:var(--late)}
-.bar{height:8px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2))}
-.pct{font-weight:800;font-size:20px}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.pct{font-weight:800;font-size:19px}
+.off{background:var(--line);border-radius:14px;padding:14px;text-align:center;color:var(--mut);font-weight:600}
 .err{color:var(--no)}
-nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
-nav button{flex:1;border:0;background:transparent;color:var(--mut);font:inherit;font-size:12px;font-weight:600;padding:6px 2px;border-radius:12px}
-nav button span{display:block;font-size:22px}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1;border:0;background:transparent;color:var(--mut);font:inherit;font-size:11px;font-weight:600;padding:6px 0;border-radius:12px}
+nav button span{display:block;font-size:21px}
 nav button.on{color:var(--acc)}
 </style></head><body>
 <header><div class="hd">🤸 Turnen Anwesenheit</div></header>
 <main id="app"><p class="mut">Lädt…</p></main>
 <nav id="nav" style="display:none">
-<button data-t="day"><span>📋</span>Training</button><button data-t="week"><span>🗓️</span>Woche</button><button data-t="stats"><span>📊</span>Statistik</button><button data-t="kids"><span>👧</span>Kinder</button>
+<button data-t="day"><span>📋</span>Training</button><button data-t="week"><span>🗓️</span>Woche</button><button data-t="comp"><span>🏆</span>Wettkampf</button><button data-t="stats"><span>📊</span>Statistik</button><button data-t="kids"><span>👧</span>Kinder</button>
 </nav>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
-import { getFirestore, doc, collection, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
+import { getFirestore, doc, collection, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCKoLyBMhSqgbCMia7NRaprJ3SbaRQsbo0",
@@ -84,28 +88,33 @@ const tkey = s => TK[pd(s).getDay()]||null;
 const assigned = (k,t) => !t || (k.d||['mi','do']).includes(t);
 const addDays = (s,n) => { const d=pd(s); d.setDate(d.getDate()+n); return fmt(d); };
 const mondayOf = s => { const d=pd(s); d.setDate(d.getDate()-((d.getDay()+6)%7)); return fmt(d); };
-const nextDow = w => { const d=new Date(); d.setHours(0,0,0,0); while(d.getDay()!==w) d.setDate(d.getDate()+1); return fmt(d); };
 const KS=['K1','K2','K3','K4'];
 const kc = k => k ? '<span class="kc '+k+'">'+k+'</span>' : '';
 const byName = (a,b) => a.name.localeCompare(b.name,'de');
 function groups(list){const out=[];[...KS,''].forEach(g=>{const m=list.filter(k=>(k.k||'')===g).sort(byName);if(m.length)out.push([g,m])});return out}
+const gh = (g,n) => '<div class="gh">'+(g?kc(g):'<span class="mut">Ohne Kategorie</span>')+'<span class="mut">'+n+'</span></div>';
 const clone = o => JSON.parse(JSON.stringify(o));
-const NAMES={P:'Kommt',A:'Fehlt',L:'Zu spät'};
+const NAMES={P:'✓ Kommt',A:'Fehlt',L:'Zu spät',Y:'Dabei',N:'Nicht dabei',O:'Offen'};
+const cdate = c => c.date ? label(c.date)+' '+pd(c.date).getFullYear() : 'Datum noch offen';
 
-let user=null,authKnown=false,kids=[],days={},date=fmt(new Date()),tab='day',yr='all',kf='all',week=mondayOf(fmt(new Date())),pendingDel=null,openNote=null,loginErr='',unsubs=[],loaded={r:false,d:false},addK='K1',addD={mi:true,do:true},addName='';
+let user=null,authKnown=false,kids=[],days={},comps={},date=fmt(new Date()),tab='day',yr='all',kf='all',week=mondayOf(fmt(new Date())),pendingDel=null,openNote=null,loginErr='',unsubs=[],loaded={r:false,d:false,c:false},addK='K1',addD={mi:true,do:true},addName='',showAdd=false,showCF=false,compOpen=null,draft={name:'',date:'',place:'',note:''};
 
 const fail=()=>alert('Speichern hat nicht geklappt. Prüfe die Internetverbindung.');
 const saveDay=(d,obj)=>setDoc(doc(db,'days',d),obj).catch(fail);
 const saveKids=()=>setDoc(doc(db,'app','roster'),{kids}).catch(fail);
-function upd(fn){const cur=clone(days[date]||{held:false,s:{},n:{}});cur.s=cur.s||{};cur.n=cur.n||{};fn(cur);days[date]=cur;render(true);saveDay(date,cur)}
+const saveComp=id=>setDoc(doc(db,'comps',id),comps[id]).catch(fail);
+function upd(fn){const cur=clone(days[date]||{s:{},n:{}});cur.s=cur.s||{};cur.n=cur.n||{};fn(cur);days[date]=cur;render(true);saveDay(date,cur)}
 function updKid(id,patch){kids=kids.map(k=>k.id===id?Object.assign({},k,patch):k);render(true);saveKids()}
+function updComp(id,fn){const c=clone(comps[id]);c.p=c.p||{};fn(c);comps[id]=c;render(true);saveComp(id)}
 
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;pendingDel=null;render(true)});
 
 function startListening(){
-  loaded={r:false,d:false};
-  unsubs.push(onSnapshot(doc(db,'app','roster'),s=>{kids=(s.exists()&&s.data().kids)||[];loaded.r=true;render()},e=>{loginErr='Kein Zugriff: '+e.code;render(true)}));
-  unsubs.push(onSnapshot(collection(db,'days'),q=>{const m={};q.forEach(x=>{m[x.id]=x.data()});days=m;loaded.d=true;render()},e=>{loginErr='Kein Zugriff: '+e.code;render(true)}));
+  loaded={r:false,d:false,c:false};
+  const er=e=>{loginErr='Kein Zugriff: '+e.code;render(true)};
+  unsubs.push(onSnapshot(doc(db,'app','roster'),s=>{kids=(s.exists()&&s.data().kids)||[];loaded.r=true;render()},er));
+  unsubs.push(onSnapshot(collection(db,'days'),q=>{const m={};q.forEach(x=>{m[x.id]=x.data()});days=m;loaded.d=true;render()},er));
+  unsubs.push(onSnapshot(collection(db,'comps'),q=>{const m={};q.forEach(x=>{m[x.id]=x.data()});comps=m;loaded.c=true;render()},er));
 }
 function stopListening(){unsubs.forEach(u=>u());unsubs=[]}
 onAuthStateChanged(auth,u=>{user=u;authKnown=true;stopListening();if(u)startListening();render(true)});
@@ -115,12 +124,106 @@ function render(force){
   $('#nav').style.display=user?'flex':'none';
   document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
   const ae=document.activeElement;
+function jump(dir){let d=date;for(let i=0;i<14;i++){d=addDays(d,dir);if(tkey(d))return d}return date}
+function renderDay(a){
+  const tk=tkey(date);
+  const d=days[date]||{s:{},n:{}};const S=d.s||{},N=d.n||{};
+  const list=kids.filter(k=>assigned(k,tk));
+  let h='<div class="card nav2"><button class="chip" id="pv">‹</button><div class="c"><div class="big">'+esc(label(date))+'</div><div class="mut">'+(tk==='mi'?'Mittwoch-Gruppe':tk==='do'?'Donnerstag-Gruppe':'Alle Kinder')+'</div></div><button class="chip" id="nx">›</button></div>';
+  h+='<div class="tools"><input type="date" id="dt" value="'+date+'"><button class="chip sm" id="td">Heute</button><button class="chip sm '+(d.off?'on':'')+'" id="off">Fällt aus</button></div>';
+  if(!kids.length){a.innerHTML=h+'<p>Füge zuerst Kinder hinzu: Tippe unten auf <b>Kinder</b>.</p>';bindDay(a);return}
+  if(d.off){a.innerHTML=h+'<div class="off">Dieses Training fällt aus und zählt nicht in der Statistik.</div>';bindDay(a);return}
+  if(!list.length)h+='<p class="mut">Für diesen Tag ist kein Kind eingeteilt.</p>';
+  const na=list.filter(k=>S[k.id]==='A').length,nl=list.filter(k=>S[k.id]==='L').length;
+  h+='<div class="sum">✅ '+(list.length-na)+' kommen · ❌ '+na+' fehlen · ⏰ '+nl+' zu spät</div>';
+  groups(list).forEach(([g,m])=>{
+    h+=gh(g,m.length);
+    m.forEach(k=>{const s=S[k.id]||'P',n=N[k.id]||'';
+      h+='<div class="row"><div class="nm"><div>'+esc(k.name)+'</div>'+(n?'<div class="note">📝 '+esc(n)+'</div>':'')+'</div><button class="ib" data-n="'+esc(k.id)+'">'+(n?'📝':'✏️')+'</button><button class="st '+s+'" data-k="'+esc(k.id)+'">'+NAMES[s]+'</button></div>';
+      if(openNote===k.id)h+='<input id="ni" class="ni" data-id="'+esc(k.id)+'" type="text" maxlength="200" placeholder="Notiz, z. B. krank oder Verletzung" value="'+esc(n)+'">';
+    });
+  });
+  a.innerHTML=h;bindDay(a);
+}
+function bindDay(a){
+  $('#pv').onclick=()=>{date=jump(-1);openNote=null;render(true)};
+  $('#nx').onclick=()=>{date=jump(1);openNote=null;render(true)};
+  $('#td').onclick=()=>{date=fmt(new Date());openNote=null;render(true)};
+  $('#dt').onchange=e=>{if(e.target.value){date=e.target.value;openNote=null;render(true)}};
+  $('#off').onclick=()=>upd(c=>{c.off=!c.off});
+  a.querySelectorAll('.st').forEach(b=>b.onclick=()=>upd(c=>{const id=b.dataset.k,s=c.s[id]||'P',nx=s==='P'?'A':s==='A'?'L':'P';if(nx==='P')delete c.s[id];else c.s[id]=nx}));
+  a.querySelectorAll('.ib').forEach(b=>b.onclick=()=>{openNote=openNote===b.dataset.n?null:b.dataset.n;render(true);const ni=$('#ni');if(ni)ni.focus()});
+  const ni=$('#ni');if(ni){ni.onchange=()=>upd(c=>{const v=ni.value.trim();if(v)c.n[ni.dataset.id]=v;else delete c.n[ni.dataset.id]});ni.onkeydown=e=>{if(e.key==='Enter')ni.blur()}}
+}
+
+function renderWeek(a){
+  const ds2=[addDays(week,2),addDays(week,3)];
+  let h='<div class="card nav2"><button class="chip" id="pw">‹</button><div class="big c">'+short(week)+' – '+short(addDays(week,6))+'</div><button class="chip" id="nw">›</button></div>';
+  ds2.forEach(ds=>{
+    const tk=tkey(ds),d=days[ds],S=(d&&d.s)||{},N=(d&&d.n)||{};
+    const list=kids.filter(k=>assigned(k,tk));
+    const ab=list.filter(k=>S[k.id]==='A').sort(byName),la=list.filter(k=>S[k.id]==='L').sort(byName);
+    h+='<div class="card tap" data-ds="'+ds+'"><div class="between"><div class="big">'+esc(label(ds))+'</div>'+(d&&d.off?'<span class="pill">fällt aus</span>':'<span class="pill">'+(list.length-ab.length)+' von '+list.length+' kommen</span>')+'</div>';
+    if(!(d&&d.off)){
+      if(!ab.length&&!la.length)h+='<div class="mut" style="margin-top:6px">Alle kommen.</div>';
+      ab.concat(la).forEach(k=>{const s=S[k.id];h+='<div class="line"><span class="tag '+s+'">'+NAMES[s]+'</span><b>'+esc(k.name)+'</b>'+kc(k.k)+(N[k.id]?'<span class="note">📝 '+esc(N[k.id])+'</span>':'')+'</div>'});
+    }
+    h+='</div>';
+  });
+  const wc=Object.keys(comps).filter(id=>comps[id].date>=week&&comps[id].date<=addDays(week,6)).sort((x,y)=>comps[x].date.localeCompare(comps[y].date));
+  wc.forEach(id=>{const c=comps[id],yes=kids.filter(k=>(c.p||{})[k.id]==='Y').length;
+    h+='<div class="card tap" data-wc="'+id+'"><div class="between"><div><div class="big">🏆 '+esc(c.name||'Wettkampf')+'</div><div class="mut">'+esc(cdate(c))+(c.place?' · '+esc(c.place):'')+'</div></div><span class="pill">'+yes+' dabei</span></div></div>'});
+  a.innerHTML=h;
+  $('#pw').onclick=()=>{week=addDays(week,-7);render(true)};
+  $('#nw').onclick=()=>{week=addDays(week,7);render(true)};
+  a.querySelectorAll('[data-ds]').forEach(c=>c.onclick=()=>{date=c.dataset.ds;tab='day';openNote=null;render(true)});
+  a.querySelectorAll('[data-wc]').forEach(c=>c.onclick=()=>{compOpen=c.dataset.wc;tab='comp';render(true)});
+}
+
+function renderComps(a){
+  const t=fmt(new Date());
+  const ids=Object.keys(comps);
+  const up=ids.filter(i=>!comps[i].date||comps[i].date>=t).sort((x,y)=>(comps[x].date||'9').localeCompare(comps[y].date||'9'));
+  const past=ids.filter(i=>comps[i].date&&comps[i].date<t).sort((x,y)=>comps[y].date.localeCompare(comps[x].date));
+  let h='';
+  if(showCF){
+    h+='<div class="card"><div class="big">Neuer Wettkampf</div><input id="dn" type="text" placeholder="Name, z. B. Kreismeisterschaft" value="'+esc(draft.name)+'"><div class="lbl">Datum (kann leer bleiben, wenn es noch nicht feststeht)</div><input id="dd" type="date" value="'+esc(draft.date)+'" style="margin-top:0"><input id="dp" type="text" placeholder="Ort" value="'+esc(draft.place)+'"><input id="dz" type="text" placeholder="Notiz" value="'+esc(draft.note)+'"><button class="btn wide" id="cadd">Speichern</button><button class="btn g wide" id="ccl">Abbrechen</button></div>';
+  }else h+='<button class="btn wide" id="cnew" style="margin:0 0 12px">+ Wettkampf eintragen</button>';
+  if(!ids.length)h+='<p class="mut">Noch keine Wettkämpfe eingetragen.</p>';
+  if(up.length)h+='<div class="lbl">Kommende</div>';
+  up.forEach(i=>h+=compCard(i));
+  if(past.length)h+='<div class="lbl">Vergangene</div>';
+  past.forEach(i=>h+=compCard(i));
+  a.innerHTML=h;
+  const dr=()=>{draft.name=$('#dn').value;draft.date=$('#dd').value;draft.place=$('#dp').value;draft.note=$('#dz').value};
+  if($('#cnew'))$('#cnew').onclick=()=>{showCF=true;render(true)};
+  if($('#ccl'))$('#ccl').onclick=()=>{showCF=false;render(true)};
+  if($('#cadd'))$('#cadd').onclick=()=>{dr();if(!draft.name.trim())return;const id='w'+Date.now().toString(36);comps[id]={name:draft.name.trim(),date:draft.date,place:draft.place.trim(),note:draft.note.trim(),p:{}};draft={name:'',date:'',place:'',note:''};showCF=false;compOpen=id;render(true);saveComp(id)};
+  a.querySelectorAll('[data-co]').forEach(e=>e.onclick=()=>{compOpen=compOpen===e.dataset.co?null:e.dataset.co;render(true)});
+  a.querySelectorAll('.cf').forEach(i=>i.onchange=()=>{const f=i.dataset.f;updComp(i.dataset.id,c=>{c[f]=i.value.trim?i.value.trim():i.value})});
+  a.querySelectorAll('.cs').forEach(b=>b.onclick=()=>updComp(b.dataset.id,c=>{const s=c.p[b.dataset.k]||'O',nx=s==='O'?'Y':s==='Y'?'N':'O';if(nx==='O')delete c.p[b.dataset.k];else c.p[b.dataset.k]=nx}));
+  a.querySelectorAll('[data-cd]').forEach(b=>b.onclick=()=>{
+    if(pendingDel===b.dataset.cd){const id=b.dataset.cd;delete comps[id];pendingDel=null;compOpen=null;render(true);deleteDoc(doc(db,'comps',id)).catch(fail)}
+    else{pendingDel=b.dataset.cd;render(true)}});
+}
+function compCard(id){
+  const c=comps[id],P=c.p||{},yes=kids.filter(k=>P[k.id]==='Y').length;
+  let h='<div class="card"><div class="between tap" data-co="'+id+'"><div><div class="big">🏆 '+esc(c.name||'Wettkampf')+'</div><div class="mut">'+esc(cdate(c))+(c.place?' · '+esc(c.place):'')+'</div></div><span class="pill">'+yes+' dabei</span></div>';
+  if(c.note&&compOpen!==id)h+='<div class="note">📝 '+esc(c.note)+'</div>';
+  if(compOpen===id){
+    h+='<input class="cf" data-id="'+id+'" data-f="name" type="text" value="'+esc(c.name||'')+'" placeholder="Name"><input class="cf" data-id="'+id+'" data-f="date" type="date" value="'+esc(c.date||'')+'"><input class="cf" data-id="'+id+'" data-f="place" type="text" value="'+esc(c.place||'')+'" placeholder="Ort"><input class="cf" data-id="'+id+'" data-f="note" type="text" value="'+esc(c.note||'')+'" placeholder="Notiz">';
+    h+='<div class="lbl">Wer macht mit? Tippen: Offen → Dabei → Nicht dabei</div>';
+    groups(kids).forEach(([g,m])=>{h+=gh(g,m.length);m.forEach(k=>{const s=P[k.id]||'O';h+='<div class="row"><div class="nm">'+esc(k.name)+'</div><button class="st cs '+s+'" data-id="'+id+'" data-k="'+esc(k.id)+'">'+NAMES[s]+'</button></div>'})});
+    h+='<button class="chip sm rm" data-cd="'+id+'" style="margin-top:12px">'+(pendingDel===id?'Nochmal tippen zum Löschen':'Wettkampf löschen')+'</button>';
+  }
+  return h+'</div>';
+}
   if(!force&&ae&&ae.tagName==='INPUT'&&ae.type==='text'&&a.contains(ae))return;
   if(!authKnown){a.innerHTML='<p class="mut">Lädt…</p>';return}
   if(!user){renderLogin(a);return}
   if(loginErr){a.innerHTML='<p class="err">'+esc(loginErr)+'</p>';return}
-  if(!loaded.r||!loaded.d){a.innerHTML='<p class="mut">Lädt…</p>';return}
-  ({day:renderDay,week:renderWeek,stats:renderStats,kids:renderKids})[tab](a);
+  if(!loaded.r||!loaded.d||!loaded.c){a.innerHTML='<p class="mut">Lädt…</p>';return}
+  ({day:renderDay,week:renderWeek,comp:renderComps,stats:renderStats,kids:renderKids})[tab](a);
 }
 function renderLogin(a){
   a.innerHTML='<div class="card"><div class="big">Willkommen 👋</div><p class="mut">Bitte gib das Team-Passwort ein.</p><input id="pw" type="password" placeholder="Passwort"><button class="btn wide" id="go">Los</button><p class="err" id="le">'+esc(loginErr)+'</p></div>';
@@ -129,87 +232,49 @@ function renderLogin(a){
     catch(e){loginErr='Falsches Passwort.';$('#le').textContent=loginErr}};
   $('#go').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()};
 }
-function renderDay(a){
-  const tk=tkey(date);
-  const d=days[date]||{held:false,s:{},n:{}};const S=d.s||{},N=d.n||{};
-  const list=kids.filter(k=>assigned(k,tk));
-  let h='<div class="card"><div class="big">'+esc(label(date))+'</div><input type="date" id="dt" value="'+date+'"><div class="chips"><button class="chip" data-j="3">Nächster Mittwoch</button><button class="chip" data-j="4">Nächster Donnerstag</button></div>'+(tk?'':'<p class="mut">Kein Mittwoch oder Donnerstag: Es werden alle Kinder angezeigt.</p>')+'</div>';
-  if(!kids.length){a.innerHTML=h+'<p>Füge zuerst Kinder hinzu: Tippe unten auf <b>Kinder</b>.</p>';bindDay(a);return}
-  if(!list.length)h+='<p class="mut">Für diesen Tag ist kein Kind eingeteilt. Unter „Kinder“ kannst du Mi/Do festlegen.</p>';
-  const na=list.filter(k=>S[k.id]==='A').length,nl=list.filter(k=>S[k.id]==='L').length;
-  h+='<div class="sum"><span>✅ '+(list.length-na)+' kommen</span><span>❌ '+na+' fehlen</span><span>⏰ '+nl+' zu spät</span></div>';
-  groups(list).forEach(([g,m])=>{
-    h+='<div class="gh">'+(g?kc(g):'<span class="mut">Ohne Kategorie</span>')+'<span class="mut">'+m.length+'</span></div>';
-    m.forEach(k=>{const s=S[k.id]||'P',n=N[k.id]||'';
-      h+='<div class="row"><div class="nm"><div>'+esc(k.name)+'</div>'+(n?'<div class="note">📝 '+esc(n)+'</div>':'')+'</div><button class="ib" data-n="'+esc(k.id)+'">'+(n?'📝':'✏️')+'</button><button class="st '+s+'" data-k="'+esc(k.id)+'">'+NAMES[s]+'</button></div>';
-      if(openNote===k.id)h+='<input id="ni" class="ni" data-id="'+esc(k.id)+'" type="text" maxlength="200" placeholder="Notiz, z. B. krank oder Verletzung" value="'+esc(n)+'">';
-    });
-  });
-  h+='<div class="card" style="margin-top:14px"><button class="btn wide '+(d.held?'':'g')+'" id="held" style="margin-top:0">'+(d.held?'✓ Zählt in der Statistik':'Dieses Training in der Statistik zählen')+'</button><p class="mut">Tippe auf „zählen“, wenn das Training stattgefunden hat. So zählen Fehlzeiten nur für echte Trainings.</p></div>';
-  a.innerHTML=h;bindDay(a);
+function countedDays(){
+  const ids=Object.keys(days).sort();if(!ids.length)return[];
+  const end=fmt(new Date()),out=[];
+  for(let d=ids[0];d<=end;d=addDays(d,1)){const x=days[d];if(x&&x.off)continue;if(tkey(d)||x)out.push(d)}
+  return out;
 }
-function bindDay(a){
-  const dt=$('#dt');if(dt)dt.onchange=e=>{if(e.target.value){date=e.target.value;openNote=null;render(true)}};
-  a.querySelectorAll('[data-j]').forEach(b=>b.onclick=()=>{date=nextDow(+b.dataset.j);openNote=null;render(true)});
-  a.querySelectorAll('.st').forEach(b=>b.onclick=()=>upd(c=>{const id=b.dataset.k,s=c.s[id]||'P',nx=s==='P'?'A':s==='A'?'L':'P';if(nx==='P')delete c.s[id];else c.s[id]=nx}));
-  a.querySelectorAll('.ib').forEach(b=>b.onclick=()=>{openNote=openNote===b.dataset.n?null:b.dataset.n;render(true);const ni=$('#ni');if(ni)ni.focus()});
-  const ni=$('#ni');if(ni){ni.onchange=()=>upd(c=>{const v=ni.value.trim();if(v)c.n[ni.dataset.id]=v;else delete c.n[ni.dataset.id]});ni.onkeydown=e=>{if(e.key==='Enter')ni.blur()}}
-  const hb=$('#held');if(hb)hb.onclick=()=>upd(c=>{c.held=!c.held});
-}
-
-function renderWeek(a){
-  const ds2=[addDays(week,2),addDays(week,3)];
-  let h='<div class="card wk"><button class="chip" id="pw">‹</button><div class="big c">'+short(week)+' – '+short(addDays(week,6))+'</div><button class="chip" id="nw">›</button></div>';
-  ds2.forEach(ds=>{
-    const tk=tkey(ds),d=days[ds],S=(d&&d.s)||{},N=(d&&d.n)||{};
-    const list=kids.filter(k=>assigned(k,tk));
-    const ab=list.filter(k=>S[k.id]==='A').sort(byName),la=list.filter(k=>S[k.id]==='L').sort(byName);
-    h+='<div class="card tap" data-ds="'+ds+'"><div class="between"><div class="big">'+esc(label(ds))+'</div>'+(d&&d.held?'<span class="ok">✓ gezählt</span>':'')+'</div>';
-    h+='<div class="sum"><span>👧 '+list.length+' eingeteilt</span>'+(d?'<span>✅ '+(list.length-ab.length)+' kommen</span><span>❌ '+ab.length+'</span><span>⏰ '+la.length+'</span>':'')+'</div>';
-    if(!d)h+='<p class="mut" style="margin:0">Noch nichts eingetragen.</p>';
-    ab.concat(la).forEach(k=>{const s=S[k.id];h+='<div class="line"><span class="tag '+s+'">'+NAMES[s]+'</span><b>'+esc(k.name)+'</b>'+kc(k.k)+(N[k.id]?'<span class="note">📝 '+esc(N[k.id])+'</span>':'')+'</div>'});
-    h+='</div>';
-  });
-  h+='<p class="mut">Tippe auf ein Training, um es zu öffnen.</p>';
-  a.innerHTML=h;
-  $('#pw').onclick=()=>{week=addDays(week,-7);render(true)};
-  $('#nw').onclick=()=>{week=addDays(week,7);render(true)};
-  a.querySelectorAll('[data-ds]').forEach(c=>c.onclick=()=>{date=c.dataset.ds;tab='day';openNote=null;render(true)});
-}
-
 function renderStats(a){
-  const all=Object.keys(days).filter(d=>days[d].held).sort();
+  const all=countedDays();
   const years=[...new Set(all.map(d=>d.slice(0,4)))];
   const use=all.filter(d=>yr==='all'||d.startsWith(yr));
-  let h='<div class="card"><div class="chips" style="margin-top:0"><select id="yr" style="width:auto;margin:0"><option value="all">Alle Zeiten</option>'+years.map(y=>'<option value="'+y+'"'+(y===yr?' selected':'')+'>'+y+'</option>').join('')+'</select><select id="kf" style="width:auto;margin:0"><option value="all">Alle Kategorien</option>'+KS.map(k=>'<option value="'+k+'"'+(k===kf?' selected':'')+'>'+k+'</option>').join('')+'</select></div><p class="mut" style="margin-bottom:0">'+use.length+' Training'+(use.length===1?'':'s')+' gezählt. „Zu spät“ zählt als anwesend.</p></div>';
+  let h='<div class="card"><div class="chips" style="margin-top:0"><select id="yr" style="width:auto;margin:0"><option value="all">Alle Zeiten</option>'+years.map(y=>'<option value="'+y+'"'+(y===yr?' selected':'')+'>'+y+'</option>').join('')+'</select><select id="kf" style="width:auto;margin:0"><option value="all">Alle Kategorien</option>'+KS.map(k=>'<option value="'+k+'"'+(k===kf?' selected':'')+'>'+k+'</option>').join('')+'</select></div><p class="mut" style="margin:10px 0 0">'+use.length+' Training'+(use.length===1?'':'s')+' · jedes Training zählt automatisch, außer es ist als „Fällt aus“ markiert.</p></div>';
   const rows=kids.filter(k=>kf==='all'||k.k===kf).map(k=>{
     const el=use.filter(d=>assigned(k,tkey(d)));let ab=0,la=0;
-    el.forEach(d=>{const s=(days[d].s||{})[k.id];if(s==='A')ab++;if(s==='L')la++});
+    el.forEach(d=>{const s=((days[d]||{}).s||{})[k.id];if(s==='A')ab++;if(s==='L')la++});
     return{k,ab,la,n:el.length,pct:el.length?Math.round((el.length-ab)/el.length*100):null}})
   .sort((x,y)=>(x.pct===null?101:x.pct)-(y.pct===null?101:y.pct));
   if(!rows.length)h+='<p class="mut">Keine Kinder.</p>';
-  rows.forEach(r=>{h+='<div class="card"><div class="between"><div><b>'+esc(r.k.name)+'</b> '+kc(r.k.k)+'<div class="mut">Gefehlt '+r.ab+' · Zu spät '+r.la+' · von '+r.n+'</div></div><div class="pct">'+(r.pct===null?'—':r.pct+'%')+'</div></div><div class="bar"><i style="width:'+(r.pct||0)+'%"></i></div></div>'});
+  rows.forEach(r=>{h+='<div class="row" style="display:block"><div class="between"><div><b>'+esc(r.k.name)+'</b> '+kc(r.k.k)+'<div class="mut">Gefehlt '+r.ab+' · Zu spät '+r.la+' · von '+r.n+'</div></div><div class="pct">'+(r.pct===null?'—':r.pct+'%')+'</div></div><div class="bar"><i style="width:'+(r.pct||0)+'%"></i></div></div>'});
   a.innerHTML=h;
   $('#yr').onchange=e=>{yr=e.target.value;render(true)};
   $('#kf').onchange=e=>{kf=e.target.value;render(true)};
 }
-
 function renderKids(a){
-  let h='<div class="card"><div class="big">Kind hinzufügen</div><input id="nm" type="text" placeholder="Name des Kindes" value="'+esc(addName)+'"><div class="lbl">Kategorie</div><div class="chips">'+KS.map(k=>'<button class="chip '+(addK===k?'on':'')+'" data-ak="'+k+'">'+k+'</button>').join('')+'</div><div class="lbl">Training</div><div class="chips"><button class="chip '+(addD.mi?'on':'')+'" data-ad="mi">Mittwoch</button><button class="chip '+(addD.do?'on':'')+'" data-ad="do">Donnerstag</button></div><button class="btn wide" id="add">Hinzufügen</button></div>';
+  let h='';
+  if(showAdd){
+    h+='<div class="card"><div class="big">Kind hinzufügen</div><input id="nm" type="text" placeholder="Name des Kindes" value="'+esc(addName)+'"><div class="lbl">Kategorie</div><div class="chips" style="margin-top:0">'+KS.map(k=>'<button class="chip '+(addK===k?'on':'')+'" data-ak="'+k+'">'+k+'</button>').join('')+'</div><div class="lbl">Training</div><div class="chips" style="margin-top:0"><button class="chip '+(addD.mi?'on':'')+'" data-ad="mi">Mittwoch</button><button class="chip '+(addD.do?'on':'')+'" data-ad="do">Donnerstag</button></div><button class="btn wide" id="add">Hinzufügen</button><button class="btn g wide" id="cl">Fertig</button></div>';
+  }else h+='<button class="btn wide" id="sh" style="margin:0 0 6px">+ Kind hinzufügen</button>';
   groups(kids).forEach(([g,m])=>{
-    h+='<div class="gh">'+(g?kc(g):'<span class="mut">Ohne Kategorie</span>')+'<span class="mut">'+m.length+'</span></div>';
+    h+=gh(g,m.length);
     m.forEach(k=>{const dd=k.d||['mi','do'],id=esc(k.id);
-      h+='<div class="card"><input class="kn" type="text" data-id="'+id+'" value="'+esc(k.name)+'" style="margin-top:0"><div class="chips">'+KS.map(x=>'<button class="chip sm '+(k.k===x?'on':'')+'" data-kk="'+id+'" data-v="'+x+'">'+x+'</button>').join('')+'</div><div class="chips"><button class="chip sm '+(dd.includes('mi')?'on':'')+'" data-kd="'+id+'" data-v="mi">Mi</button><button class="chip sm '+(dd.includes('do')?'on':'')+'" data-kd="'+id+'" data-v="do">Do</button><button class="chip sm rm" data-d="'+id+'">'+(pendingDel===k.id?'Nochmal tippen':'Entfernen')+'</button></div></div>';
+      h+='<div class="card" style="padding:10px"><input class="kn" type="text" data-id="'+id+'" value="'+esc(k.name)+'" style="margin-top:0"><div class="chips">'+KS.map(x=>'<button class="chip sm '+(k.k===x?'on':'')+'" data-kk="'+id+'" data-v="'+x+'">'+x+'</button>').join('')+'<button class="chip sm '+(dd.includes('mi')?'on':'')+'" data-kd="'+id+'" data-v="mi">Mi</button><button class="chip sm '+(dd.includes('do')?'on':'')+'" data-kd="'+id+'" data-v="do">Do</button><button class="chip sm rm" data-d="'+id+'">'+(pendingDel===k.id?'Nochmal tippen':'Entfernen')+'</button></div></div>';
     });
   });
   h+='<button class="btn g wide" id="out">Abmelden</button>';
   a.innerHTML=h;
-  $('#nm').oninput=e=>{addName=e.target.value};
-  a.querySelectorAll('[data-ak]').forEach(b=>b.onclick=()=>{addK=b.dataset.ak;render(true)});
-  a.querySelectorAll('[data-ad]').forEach(b=>b.onclick=()=>{addD[b.dataset.ad]=!addD[b.dataset.ad];render(true)});
+  if($('#sh'))$('#sh').onclick=()=>{showAdd=true;render(true)};
+  if($('#cl'))$('#cl').onclick=()=>{showAdd=false;render(true)};
+  if($('#nm')){$('#nm').oninput=e=>{addName=e.target.value};$('#nm').onkeydown=e=>{if(e.key==='Enter')add()}}
   const add=()=>{const v=addName.trim();if(!v)return;const d=[];if(addD.mi)d.push('mi');if(addD.do)d.push('do');
     kids=kids.concat([{id:'k'+Date.now().toString(36)+Math.floor(Math.random()*99),name:v,k:addK,d}]);addName='';render(true);saveKids()};
-  $('#add').onclick=add;$('#nm').onkeydown=e=>{if(e.key==='Enter')add()};
+  if($('#add'))$('#add').onclick=add;
+  a.querySelectorAll('[data-ak]').forEach(b=>b.onclick=()=>{addK=b.dataset.ak;render(true)});
+  a.querySelectorAll('[data-ad]').forEach(b=>b.onclick=()=>{addD[b.dataset.ad]=!addD[b.dataset.ad];render(true)});
   a.querySelectorAll('.kn').forEach(i=>i.onchange=()=>{const v=i.value.trim();if(v)updKid(i.dataset.id,{name:v})});
   a.querySelectorAll('[data-kk]').forEach(b=>b.onclick=()=>{const k=kids.find(x=>x.id===b.dataset.kk);updKid(b.dataset.kk,{k:k.k===b.dataset.v?'':b.dataset.v})});
   a.querySelectorAll('[data-kd]').forEach(b=>b.onclick=()=>{const k=kids.find(x=>x.id===b.dataset.kd),dd=k.d||['mi','do'],v=b.dataset.v;updKid(b.dataset.kd,{d:dd.includes(v)?dd.filter(x=>x!==v):dd.concat([v])})});
