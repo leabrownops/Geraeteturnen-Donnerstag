@@ -33,7 +33,7 @@ input[type=text],input[type=password],input[type=date],select{font:inherit;width
 .st.A{background:var(--no);color:#fff}.st.L{background:var(--late);color:#fff}
 .st.Y{background:var(--ok);color:#fff}.st.N{background:var(--no);color:#fff}.st.O{background:var(--line);color:var(--mut)}
 .kc{display:inline-block;border-radius:8px;padding:2px 9px;font-size:13px;font-weight:800;color:#fff}
-.kc.K1{background:#f59e0b}.kc.K2{background:#10b981}.kc.K3{background:#3b82f6}.kc.K4{background:#ec4899}
+.kc.K1{background:#f59e0b}.kc.K2{background:#10b981}.kc.K3{background:#3b82f6}.kc.K4{background:#ec4899}.kc.K5{background:#8b5cf6}
 .sum{font-size:14px;font-weight:600;color:var(--mut);margin:10px 2px}
 .between{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .nav2{display:flex;align-items:center;gap:8px}
@@ -88,7 +88,7 @@ const tkey = s => TK[pd(s).getDay()]||null;
 const assigned = (k,t) => !t || (k.d||['mi','do']).includes(t);
 const addDays = (s,n) => { const d=pd(s); d.setDate(d.getDate()+n); return fmt(d); };
 const mondayOf = s => { const d=pd(s); d.setDate(d.getDate()-((d.getDay()+6)%7)); return fmt(d); };
-const KS=['K1','K2','K3','K4'];
+const KS=['K1','K2','K3','K4','K5'];
 const kc = k => k ? '<span class="kc '+k+'">'+k+'</span>' : '';
 const byName = (a,b) => a.name.localeCompare(b.name,'de');
 function groups(list){const out=[];[...KS,''].forEach(g=>{const m=list.filter(k=>(k.k||'')===g).sort(byName);if(m.length)out.push([g,m])});return out}
